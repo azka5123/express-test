@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Index Product</title>
+</head>
+
+<body class="bg-red-100 p-5">
+    <div class=" flex justify-between ">
+        <h1 class="text-3xl">Halaman Product</h1>
+        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/product/create">Tambah
+            Product Baru</a>
+    </div>
+
+    <div class="relative overflow-x-auto mt-12">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Product name
+                    </th>
+
+                    <th scope="col" class="px-6 py-3">
+                        Quantity
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(function(item) { %>
+                <tr class="bg-white border-b ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                       <%= item.nama %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= item.jumlah %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= item.harga %>
+                    </td>
+                    <td class="">
+                        <div class="flex ">
+                            <a class="py-2 px-4 text-white bg-yellow-500 hover:bg-yellow-700 rounded me-2" href="edit/<%= item.id %>">Edit</a>
+                            <a class="py-2 px-4 text-white bg-red-500 hover:bg-red-700 rounded" href="delete/<%= item.id %>">Delete</a>
+                        </div>
+                    </td>
+
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
